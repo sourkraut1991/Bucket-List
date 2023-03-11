@@ -8,17 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		68F3694F29BC579F00B7C10D /* Bucket_ListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F3694E29BC579F00B7C10D /* Bucket_ListApp.swift */; };
-		68F3695129BC579F00B7C10D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F3695029BC579F00B7C10D /* ContentView.swift */; };
+		68F3695129BC579F00B7C10D /* BucketListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F3695029BC579F00B7C10D /* BucketListView.swift */; };
 		68F3695329BC57A000B7C10D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68F3695229BC57A000B7C10D /* Assets.xcassets */; };
 		68F3695629BC57A000B7C10D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68F3695529BC57A000B7C10D /* Preview Assets.xcassets */; };
+		68F3695D29BC5CBC00B7C10D /* BucketItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F3695C29BC5CBC00B7C10D /* BucketItem.swift */; };
+		68F3695F29BC602000B7C10D /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F3695E29BC602000B7C10D /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		68F3694B29BC579F00B7C10D /* Bucket List.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bucket List.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		68F3694E29BC579F00B7C10D /* Bucket_ListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bucket_ListApp.swift; sourceTree = "<group>"; };
-		68F3695029BC579F00B7C10D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		68F3695029BC579F00B7C10D /* BucketListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListView.swift; sourceTree = "<group>"; };
 		68F3695229BC57A000B7C10D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68F3695529BC57A000B7C10D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		68F3695C29BC5CBC00B7C10D /* BucketItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketItem.swift; sourceTree = "<group>"; };
+		68F3695E29BC602000B7C10D /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,9 +56,11 @@
 			isa = PBXGroup;
 			children = (
 				68F3694E29BC579F00B7C10D /* Bucket_ListApp.swift */,
-				68F3695029BC579F00B7C10D /* ContentView.swift */,
+				68F3695029BC579F00B7C10D /* BucketListView.swift */,
+				68F3695C29BC5CBC00B7C10D /* BucketItem.swift */,
 				68F3695229BC57A000B7C10D /* Assets.xcassets */,
 				68F3695429BC57A000B7C10D /* Preview Content */,
+				68F3695E29BC602000B7C10D /* DetailView.swift */,
 			);
 			path = "Bucket List";
 			sourceTree = "<group>";
@@ -137,7 +143,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68F3695129BC579F00B7C10D /* ContentView.swift in Sources */,
+				68F3695D29BC5CBC00B7C10D /* BucketItem.swift in Sources */,
+				68F3695F29BC602000B7C10D /* DetailView.swift in Sources */,
+				68F3695129BC579F00B7C10D /* BucketListView.swift in Sources */,
 				68F3694F29BC579F00B7C10D /* Bucket_ListApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
