@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BucketListView: View {
-    @State private var bucketList = BucketItem.samples
+    @EnvironmentObject var dataStore: DataStore
     
     @State private var newItem = ""
     
@@ -18,35 +18,46 @@ struct BucketListView: View {
                 HStack { TextField ("New Bucket Item", text: $newItem)
                         .textFieldStyle(.roundedBorder)
                     Button {
-                        let newBucketItem = BucketItem(name: newItem)
-                        bucketList.append(newBucketItem)
+                        dataStore.create(newItem)
                         newItem = ""
+                        
                     } label: {
                         Image (systemName: "plus.circle.fill")
                     }
                     .disabled (newItem.isEmpty)
                     
                 }.padding()
-                
-                List {
-                    ForEach($bucketList) { $item in
-                        NavigationLink(value: item) {
-                            TextField(item.name, text: $item.name, axis: .vertical)
-                                .textFieldStyle(.roundedBorder)
+                if !dataStore.bucketList.isEmpty {
+                    List {
+                        ForEach($dataStore.bucketList) { $item in
+                            NavigationLink(value: item) {
+                                TextField(item.name, text: $item.name, axis: .vertical)
+                                    .textFieldStyle(.roundedBorder)
+                                    .font(.title3)
+                                    .foregroundColor(item.completedDate == .distantPast ? .primary : .red)
                                 
+                                
+                                
+                            }
+                            .onChange(of: item, perform: { _ in
+                                dataStore.saveList()
+                            })
+                            .listRowSeparator(.hidden)
                         }
-                        .listRowSeparator(.hidden)
+                        .onDelete { indexSet in
+                            dataStore.delete(indexSet: indexSet)
+                        }
                     }
-                    .onDelete { indexSet in
-                        bucketList.remove(atOffsets: indexSet)
-                    }
-                }
                     .listStyle(.plain)
+                } else {
+                    Text("Add your first Bucket List Item")
+                    Image("bucketList")
+                    Spacer()
                 }
+            }
                 .navigationTitle("Bucket List")
                 .navigationDestination(for: BucketItem .self) { item in
-                    Text(item.name)
-                        .font(.title)
+                    DetailView(bucketItem: item)
                 }
             }
         }
@@ -56,5 +67,6 @@ struct BucketListView: View {
 struct BucketListView_Previews: PreviewProvider {
     static var previews: some View {
         BucketListView()
+            .environmentObject(DataStore())
     }
 }
